@@ -15,9 +15,9 @@ const photos = [
 		caption: 'Friends become teammates.',
 	},
 	{
-		src: '/Relay/images/relay-kids.svg',
-		alt: 'Children running joyfully in a community event',
-		caption: 'Young hearts leading the way.',
+  		src: `${import.meta.env.BASE_URL}images/relay-kids.svg`,
+  		alt: 'Children running joyfully in a community event',
+  		caption: 'Young hearts leading the way.',
 	},
 	{
 		src: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=800&q=75',
@@ -65,8 +65,8 @@ export default function Gallery() {
 		img.dataset.errorAttempted = 'true';
 		
 		// Try with base path first
-		const fallbackSrc = '/Relay/images/relay-community.svg';
-		img.src = fallbackSrc;
+		img.onerror = null;
+		img.src = `${import.meta.env.BASE_URL}images/relay-community.svg`;
 	};
 
 	return (
