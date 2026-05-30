@@ -111,7 +111,9 @@ export default function About() {
 								className="absolute inset-0 h-full w-full object-cover"
 								loading="lazy"
 								onError={(e) => {
-									(e.currentTarget as HTMLImageElement).src = '/images/relay-community.svg';
+  									const img = e.currentTarget as HTMLImageElement;
+  									img.onerror = null;
+ 									img.src = `${import.meta.env.BASE_URL}images/relay-community.svg`;
 								}}
 							/>
 							<div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
