@@ -15,7 +15,7 @@ const photos = [
 		caption: 'Friends become teammates.',
 	},
 	{
-		src: '/images/relay-kids.svg',
+		src: '/Relay/images/relay-kids.svg',
 		alt: 'Children running joyfully in a community event',
 		caption: 'Young hearts leading the way.',
 	},
@@ -41,7 +41,27 @@ const photos = [
 	},
 ];
 
+// Placeholder for broken images
+const PLACEHOLDER_SVG = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23333" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23888" font-size="18"%3EImage unavailable%3C/text%3E%3C/svg%3E';
+
 export default function Gallery() {
+	const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+		const img = e.currentTarget;
+		
+		// Prevent infinite loop by checking if already tried fallback
+		if (img.src === PLACEHOLDER_SVG || img.dataset.errorAttempted === 'true') {
+			console.warn('Image failed to load, using placeholder:', img.alt);
+			return;
+		}
+		
+		// Mark that we've attempted the fallback
+		img.dataset.errorAttempted = 'true';
+		
+		// Try with base path first
+		const fallbackSrc = '/Relay/images/relay-community.svg';
+		img.src = fallbackSrc;
+	};
+
 	return (
 		<section
 			id="gallery"
@@ -85,9 +105,7 @@ export default function Gallery() {
 								alt={p.alt}
 								loading="lazy"
 								className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-110"
-								onError={(e) => {
-									(e.currentTarget as HTMLImageElement).src = '/images/relay-community.svg';
-								}}
+								onError={handleImageError}
 							/>
 							<div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
 							{/* Hover glow ring */}
@@ -102,4 +120,3 @@ export default function Gallery() {
 		</section>
 	);
 }
-
