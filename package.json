@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://Tushaarreddy.github.io/Relay",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -25,4 +26,3 @@
     "vite": "^5.3.4"
   }
 }
-
