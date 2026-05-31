@@ -2,40 +2,40 @@ import { motion } from 'framer-motion';
 import { Users, MapPinned, Footprints, HeartHandshake, Sparkles } from 'lucide-react';
 import Counter from './Counter';
 
-const stats = [
+const baseStats = [
 	{
 		icon: Users,
-		end: 25000,
-		suffix: '+',
+		end: 0,
+		suffix: '',
 		label: 'Participants',
 		color: 'from-saffron-500 to-saffron-600',
 	},
 	{
 		icon: MapPinned,
-		end: 1200,
-		suffix: '+',
-		label: 'Villages Involved',
+		end: 1,
+		suffix: '',
+		label: 'Relay Season',
 		color: 'from-leaf-500 to-leaf-700',
 	},
 	{
 		icon: Footprints,
-		end: 85000,
+		end: 100,
 		suffix: ' km',
-		label: 'Kilometers Covered',
+		label: 'Distance Goals',
 		color: 'from-sky2-500 to-sky2-600',
 	},
 	{
 		icon: HeartHandshake,
-		end: 4500,
+		end: 50,
 		suffix: '+',
 		label: 'Volunteers',
 		color: 'from-rose-400 to-rose-600',
 	},
 	{
 		icon: Sparkles,
-		end: 28,
+		end: 1,
 		suffix: '',
-		label: 'States & UTs',
+		label: 'Routes Confirmed',
 		color: 'from-amber-400 to-amber-600',
 	},
 ];
@@ -49,7 +49,11 @@ const points = [
 	'Stronger villages, healthier communities',
 ];
 
-export default function About() {
+export default function About({ participantCount }: { participantCount: number }) {
+	const stats = baseStats.map((s) =>
+		s.label === 'Participants' ? { ...s, end: participantCount } : s
+	);
+
 	return (
 		<section id="about" className="relative py-20 sm:py-28 bg-[#0a0a0a]">
 			{/* Subtle glow */}
@@ -76,7 +80,7 @@ export default function About() {
 							<span className="text-sky2-400">city.</span>
 						</h2>
 						<p className="mt-5 text-gray-400 text-lg leading-relaxed">
-							Health First Relay Marathon India is a free, all-inclusive relay
+							Health First Relay Marathon is a free, all-inclusive relay
 							where families, farmers, students, professionals and seniors run
 							together — passing the baton of wellbeing from one neighbour to the
 							next.
@@ -166,7 +170,7 @@ export default function About() {
 									Community Impact
 								</div>
 								<div className="mt-3 text-xl font-extrabold leading-snug text-white">
-									Every step plants a seed of healthier India 🌱
+									Every step plants a seed of healthier communities
 								</div>
 								<p className="mt-3 text-sm text-white/85">
 									Awareness drives, free check-ups, school workshops &

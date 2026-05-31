@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { Code2, Stethoscope, BookOpen, GraduationCap, Briefcase, Microscope, Landmark, Users2, HeartHandshake } from 'lucide-react';
 
 const profiles = [
-	{ icon: Code2, role: 'Software Engineer', tagline: 'Building tech for Bharat', color: 'from-sky2-500 to-sky2-600' },
+	{ icon: Code2, role: 'Software Engineer', tagline: 'Building tech for good', color: 'from-sky2-500 to-sky2-600' },
 	{ icon: Stethoscope, role: 'Doctor', tagline: 'Caring beyond clinics', color: 'from-rose-400 to-rose-600' },
 	{ icon: BookOpen, role: 'Teacher', tagline: 'Lighting young minds', color: 'from-amber-400 to-amber-600' },
 	{ icon: GraduationCap, role: 'Student', tagline: 'Tomorrow, today', color: 'from-violet-400 to-violet-600' },
 	{ icon: Briefcase, role: 'Entrepreneur', tagline: 'Ideas that uplift', color: 'from-saffron-400 to-saffron-600' },
-	{ icon: Microscope, role: 'Scientist', tagline: 'Curiosity for India', color: 'from-emerald-400 to-emerald-600' },
+	{ icon: Microscope, role: 'Scientist', tagline: 'Curiosity for impact', color: 'from-emerald-400 to-emerald-600' },
 	{ icon: Landmark, role: 'Politician', tagline: 'Public service first', color: 'from-indigo-400 to-indigo-600' },
 	{ icon: Users2, role: 'Community Leader', tagline: 'Voice of the village', color: 'from-leaf-500 to-leaf-700' },
 	{ icon: HeartHandshake, role: 'Social Worker', tagline: 'Hands that heal', color: 'from-pink-400 to-pink-600' }

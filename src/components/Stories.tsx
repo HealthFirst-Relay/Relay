@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 const stories = [
 	{
 		name: 'Anjali, Class 10 Student',
-		place: 'Pune, MH',
+		place: 'Westside Community',
 		quote: 'I never thought running could feel like a festival. I made friends from villages 50 km away — and I run every morning now!',
 		color: 'from-violet-400 to-violet-600',
 		initials: 'A',
@@ -13,7 +13,7 @@ const stories = [
 	},
 	{
 		name: 'Ramesh Bhai, Farmer',
-		place: 'Anand, GJ',
+		place: 'River Valley',
 		quote: 'The marathon brought our entire village together. My back pain reduced and our youngsters now wake up early to run with me.',
 		color: 'from-leaf-500 to-leaf-700',
 		initials: 'R',
@@ -21,7 +21,7 @@ const stories = [
 	},
 	{
 		name: 'Mrs. Latha, Teacher',
-		place: 'Madurai, TN',
+		place: 'Southside School',
 		quote: 'My students learnt teamwork, kindness and discipline in just one weekend. This is education at its purest.',
 		color: 'from-amber-400 to-amber-600',
 		initials: 'L',
@@ -29,7 +29,7 @@ const stories = [
 	},
 	{
 		name: 'Dr. Arjun, Physician',
-		place: 'Lucknow, UP',
+		place: 'Central Clinic',
 		quote: 'I met patients-turned-friends. The conversations on the route were more healing than any clinic.',
 		color: 'from-rose-400 to-rose-600',
 		initials: 'D',
@@ -37,7 +37,7 @@ const stories = [
 	},
 	{
 		name: 'Bhanwari Devi, 68',
-		place: 'Jodhpur, RJ',
+		place: 'Desert Road',
 		quote: 'I walked 3 km of the relay. People cheered me like a star. I felt 25 again!',
 		color: 'from-saffron-400 to-saffron-600',
 		initials: 'B',
@@ -66,7 +66,7 @@ export default function Stories() {
 			<div className="container-x">
 				<div className="text-center max-w-3xl mx-auto">
 					<span className="section-eyebrow">Community Stories</span>
-					<h2 className="section-title mt-4">Voices from across India</h2>
+					<h2 className="section-title mt-4">Voices from across communities</h2>
 				</div>
 
 				<div className="mt-12 max-w-4xl mx-auto relative">

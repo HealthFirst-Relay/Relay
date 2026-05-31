@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,14 +15,35 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import ScrollProgress from './components/ScrollProgress';
 
+const REGISTRATION_STORAGE_KEY = 'hfrm_registrations';
+
+function getRegistrationCount() {
+  try {
+    const list = JSON.parse(localStorage.getItem(REGISTRATION_STORAGE_KEY) || '[]');
+    return Array.isArray(list) ? list.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 export default function App() {
+  const [participantCount, setParticipantCount] = useState(0);
+
+  useEffect(() => {
+    setParticipantCount(getRegistrationCount());
+
+    const onRegistrationSaved = () => setParticipantCount(getRegistrationCount());
+    window.addEventListener('hfrm:registration-saved', onRegistrationSaved);
+    return () => window.removeEventListener('hfrm:registration-saved', onRegistrationSaved);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#080808] overflow-x-hidden">
       <ScrollProgress />
       <Navbar />
       <main>
-        <Hero />
-        <About />
+        <Hero participantCount={participantCount} />
+        <About participantCount={participantCount} />
         <Benefits />
         <Inspiration />
         <Rewards />
@@ -29,7 +51,7 @@ export default function App() {
         <Timeline />
         <Stories />
         <Gallery />
-        <Registration />
+        <Registration onRegistered={setParticipantCount} />
         <Feedback />
         <FAQ />
       </main>

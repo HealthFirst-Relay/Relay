@@ -35,7 +35,7 @@ export default function Counter({ end, duration = 2, suffix = '', prefix = '' }:
       transition={{ duration: 0.5 }}
     >
       {prefix}
-      {value.toLocaleString('en-IN')}
+      {value.toLocaleString('en-US')}
       {suffix}
     </motion.span>
   );

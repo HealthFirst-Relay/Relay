@@ -12,7 +12,7 @@ const team = [
 	{
 		name: 'Dr. Priya Iyer',
 		role: 'Doctor',
-		mission: 'Championing preventive health awareness across rural India.',
+		mission: 'Championing preventive health awareness across rural communities.',
 		color: 'from-rose-400 to-rose-600',
 		initials: 'PI',
 	},

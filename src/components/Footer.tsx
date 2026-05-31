@@ -18,12 +18,12 @@ export default function Footer() {
               <div className="font-display font-extrabold leading-tight text-lg sm:text-xl">
                 Health First
                 <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] text-leaf-200">
-                  Relay Marathon India
+                  Relay Marathon
                 </div>
               </div>
             </div>
             <p className="mt-4 text-base text-white/85 leading-relaxed">
-              A free, all-inclusive relay marathon connecting India through health, fitness, inspiration and community.
+              A free, all-inclusive relay marathon connecting communities through health, fitness, inspiration and service.
               Run Together. Grow Together. Inspire Together.
             </p>
             <div className="mt-5 flex gap-2">
@@ -65,18 +65,18 @@ export default function Footer() {
           <div>
             <h4 className="font-bold uppercase tracking-wider text-base text-leaf-200">Contact</h4>
             <ul className="mt-4 space-y-3 text-base text-white/85">
-              <li className="flex items-start gap-3"><MapPin className="h-5 w-5 mt-0.5 text-saffron-300" /> Pan-India • Headquartered in Bengaluru</li>
+              <li className="flex items-start gap-3"><MapPin className="h-5 w-5 mt-0.5 text-saffron-300" /> Community routes • Local event teams</li>
               <li className="flex items-start gap-3"><Mail className="h-5 w-5 mt-0.5 text-saffron-300" /> hello@healthfirstrelay.in</li>
-              <li className="flex items-start gap-3"><Phone className="h-5 w-5 mt-0.5 text-saffron-300" /> +91 90000 00000</li>
+              <li className="flex items-start gap-3"><Phone className="h-5 w-5 mt-0.5 text-saffron-300" /> +1 555 010 0000</li>
             </ul>
             <p className="mt-5 text-sm text-white/75 italic">
-              Mission: To build a healthier, kinder, more connected India — one step at a time.
+              Mission: To build healthier, kinder, more connected communities — one step at a time.
             </p>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/75">
-          <div>© {new Date().getFullYear()} Health First Relay Marathon India. Made with 💚 across India.</div>
+          <div>© {new Date().getFullYear()} Health First Relay Marathon. Made for every community.</div>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white">Privacy</a>
             <a href="#" className="hover:text-white">Terms</a>

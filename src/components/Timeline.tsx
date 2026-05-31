@@ -6,7 +6,7 @@ const events = [
 		icon: ClipboardCheck,
 		title: 'Registration Opens',
 		date: 'Phase 1 • Online & Village Camps',
-		desc: 'Free sign-up across India — schools, colleges, villages and towns.',
+		desc: 'Free sign-up for schools, colleges, villages and towns.',
 		color: 'from-saffron-400 to-saffron-600',
 	},
 	{

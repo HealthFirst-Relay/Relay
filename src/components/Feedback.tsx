@@ -1,8 +1,10 @@
 import { FormEvent, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Send, Lightbulb } from 'lucide-react';
+import { isRemoteSubmissionEnabled, submitToRemote } from '../lib/submissions';
 
 const types = ['Suggestion', 'Event Idea', 'Community Initiative', 'Volunteer Proposal'] as const;
+const STORAGE_KEY = 'hfrm_feedback';
 
 export default function Feedback() {
   const [type, setType] = useState<typeof types[number]>('Suggestion');
@@ -12,12 +14,42 @@ export default function Feedback() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!message.trim()) return;
+    setSubmitting(true);
+    setFailed(false);
+
+    const id = `HFRM-FB-${Date.now().toString(36).toUpperCase()}`;
+    const record = { id, submittedAt: new Date().toISOString(), type, rating, name, email, message };
+    try {
+      const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const list = Array.isArray(existing) ? existing : [];
+      list.push(record);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    } catch {}
+
+    if (isRemoteSubmissionEnabled) {
+      try {
+        await submitToRemote({
+          kind: 'feedback',
+          id,
+          submittedAt: record.submittedAt,
+          customerEmail: email || undefined,
+          sendCustomerEmail: Boolean(email),
+          data: { type, rating, name, email, message },
+        });
+      } catch {
+        setFailed(true);
+      }
+    }
+
     setSent(true);
     setName(''); setEmail(''); setMessage(''); setRating(0);
+    setSubmitting(false);
     setTimeout(() => setSent(false), 4500);
   };
 
@@ -106,17 +138,17 @@ export default function Feedback() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <button type="submit" className="btn-primary">
-                <Send className="h-4 w-4" /> Submit
+              <button type="submit" disabled={submitting} className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed">
+                <Send className="h-4 w-4" /> {submitting ? 'Submitting...' : 'Submit'}
               </button>
-              <span className="text-sm text-gray-500 self-center">We read every single message. 💚</span>
+              <span className="text-sm text-gray-500 self-center">We read every single message.</span>
             </div>
 
             <AnimatePresence>
               {sent && (
                 <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                   className="mt-5 rounded-2xl bg-leaf-500/15 border border-leaf-500/30 p-4 text-white font-semibold">
-                  ✅ Thank you! Your {type.toLowerCase()} has been received.
+                  Thank you! Your {type.toLowerCase()} has been received{failed ? ' locally; online delivery will need the form endpoint checked.' : '.'}
                 </motion.div>
               )}
             </AnimatePresence>

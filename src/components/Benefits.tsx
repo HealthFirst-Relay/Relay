@@ -75,7 +75,7 @@ export default function Benefits() {
 						Benefits that ripple far beyond the finish line
 					</h2>
 					<p className="mt-4 text-gray-400 text-lg">
-						One relay. Five powerful ways it transforms lives across India.
+						One relay. Five powerful ways it transforms local lives.
 					</p>
 				</div>
 				<div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

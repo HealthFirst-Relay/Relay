@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, HandHeart, Info, MapPin, CalendarDays, Play } from 'lucide-react';
 
-export default function Hero() {
+export default function Hero({ participantCount }: { participantCount: number }) {
   return (
     <section id="top" className="relative min-h-[100svh] flex flex-col overflow-hidden">
       {/* Full-bleed background photo */}
@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="lg:col-span-7">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="section-eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-saffron-500 animate-pulse" />
-              Free • For Everyone • Across India
+              Free • For Everyone • Every Community
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }}
@@ -34,7 +34,7 @@ export default function Hero() {
               Health First{' '}
               <span className="bg-gradient-to-r from-saffron-400 via-saffron-500 to-leaf-400 bg-clip-text text-transparent">Relay</span>
               <br />
-              <span className="bg-gradient-to-r from-leaf-400 to-saffron-400 bg-clip-text text-transparent">Marathon</span>{' '}India
+              <span className="bg-gradient-to-r from-leaf-400 to-saffron-400 bg-clip-text text-transparent">Marathon</span>
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
@@ -53,7 +53,7 @@ export default function Hero() {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-8 flex flex-wrap gap-4 text-sm text-gray-400">
               <span className="inline-flex items-center gap-2 bg-white/8 backdrop-blur px-4 py-2 rounded-full border border-white/12">
-                <CalendarDays className="h-4 w-4 text-saffron-400" /> Season 2026 • Pan-India
+                <CalendarDays className="h-4 w-4 text-saffron-400" /> Season 2026 • Community Routes
               </span>
               <span className="inline-flex items-center gap-2 bg-white/8 backdrop-blur px-4 py-2 rounded-full border border-white/12">
                 <MapPin className="h-4 w-4 text-leaf-400" /> 50 – 100+ km Relay
@@ -88,7 +88,7 @@ export default function Hero() {
               </div>
 
               <div className="mt-4 grid grid-cols-3 gap-3 text-center">
-                {[{ k: '25K+', v: 'Participants' }, { k: '100%', v: 'Free' }, { k: '28', v: 'States' }].map((s) => (
+                {[{ k: participantCount.toString(), v: 'Participants' }, { k: '100%', v: 'Free' }, { k: '1st', v: 'Relay' }].map((s) => (
                   <div key={s.v} className="rounded-2xl bg-white/6 border border-white/10 p-3">
                     <div className="text-xl font-extrabold text-saffron-400">{s.k}</div>
                     <div className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">{s.v}</div>
@@ -100,7 +100,7 @@ export default function Hero() {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
               className="hidden sm:flex mt-3 items-center gap-2 bg-white/10 backdrop-blur-xl rounded-full px-4 py-2 border border-white/20 w-fit">
               <span className="h-2 w-2 rounded-full bg-leaf-400 animate-pulse" />
-              <span className="text-xs font-semibold text-white">A movement for healthier India</span>
+              <span className="text-xs font-semibold text-white">A movement for healthier communities</span>
             </motion.div>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function Hero() {
         <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap py-3 text-gray-300 font-semibold text-sm">
           {Array.from({ length: 2 }).map((_, k) => (
             <div key={k} className="flex shrink-0 items-center gap-10 px-6">
-              {['🏃 Run Together','🌱 Grow Together','✨ Inspire Together','🤝 Community First','🇮🇳 Made for India','💚 Health for All','🏅 Free Participation','❤️ Strong Villages','🎽 Relay Race'].map((t, i) => (
+              {['Run Together','Grow Together','Inspire Together','Community First','Made for Everyone','Health for All','Free Participation','Strong Communities','Relay Race'].map((t, i) => (
                 <span key={`${k}-${i}`} className="inline-flex items-center gap-2">
                   <span className="text-base">{t}</span>
                   <span className="h-1 w-1 rounded-full bg-saffron-500" />

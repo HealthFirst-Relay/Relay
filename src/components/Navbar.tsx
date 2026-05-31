@@ -39,7 +39,7 @@ export default function Navbar() {
 					<span className="font-display font-extrabold text-lg sm:text-xl leading-tight text-white">
 						Health First
 						<span className="block text-[11px] sm:text-sm font-semibold uppercase tracking-[0.16em] text-saffron-400">
-							Relay Marathon India
+							Relay Marathon
 						</span>
 					</span>
 				</a>
