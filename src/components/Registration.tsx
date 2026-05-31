@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Save, Send, AlertCircle, Database, Download } from 'lucide-react';
+import { CheckCircle2, Save, Send, AlertCircle, Database } from 'lucide-react';
 import { isRemoteSubmissionEnabled, submitToRemote } from '../lib/submissions';
 
 const STORAGE_KEY = 'hfrm_registrations';
@@ -123,32 +123,6 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
     } catch {}
   };
 
-  const downloadCsv = () => {
-    try {
-      const list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      if (!Array.isArray(list) || list.length === 0) return;
-      const headers = Object.keys(list[0]);
-      const csv = [
-        headers.join(','),
-        ...list.map((row: Record<string, unknown>) =>
-          headers.map((h) => `"${String(row[h] ?? '').replace(/"/g, '""')}"`).join(',')
-        )
-      ].join('\n');
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `hfrm-registrations-${new Date().toISOString().slice(0, 10)}.csv`;
-      a.click();
-      URL.revokeObjectURL(url);
-    } catch {}
-  };
-
-  const savedCount = (() => {
-    try { return (JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]') as unknown[]).length; }
-    catch { return 0; }
-  })();
-
   return (
     <section id="register" className="relative py-20 sm:py-28 bg-[#0a0a0a]">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -266,11 +240,6 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
                 <button type="button" onClick={onSaveDraft} className="btn-ghost">
                   <Save className="h-4 w-4" /> Save Draft
                 </button>
-                {savedCount > 0 && (
-                  <button type="button" onClick={downloadCsv} className="btn-ghost">
-                    <Download className="h-4 w-4" /> Download CSV ({savedCount})
-                  </button>
-                )}
               </div>
 
               {/* Storage transparency note */}
