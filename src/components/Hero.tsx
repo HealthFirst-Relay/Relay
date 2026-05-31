@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, HandHeart, Info, MapPin, CalendarDays, Play } from 'lucide-react';
+import { ArrowRight, HandHeart, Info, MapPin, CalendarDays, Flag } from 'lucide-react';
 
 export default function Hero({ participantCount }: { participantCount: number }) {
   return (
@@ -16,17 +16,12 @@ export default function Hero({ participantCount }: { participantCount: number })
       </div>
 
       {/* Orb accents */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/3 h-[500px] w-[500px] rounded-full bg-saffron-500/10 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-leaf-500/10 blur-[100px]" />
-      </div>
-
       <div className="container-x relative flex-1 flex items-center pt-24 sm:pt-28 pb-16 sm:pb-20">
         <div className="grid lg:grid-cols-12 gap-10 items-center w-full">
           <div className="lg:col-span-7">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="section-eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-saffron-500 animate-pulse" />
-              Free • For Everyone • Every Community
+              Inaugural Relay • Free Registration
             </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }}
@@ -40,7 +35,7 @@ export default function Hero({ participantCount }: { participantCount: number })
             <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
               className="mt-6 text-lg sm:text-xl text-gray-300 max-w-2xl leading-relaxed">
               <span className="font-semibold text-white">Run Together. Grow Together. Inspire Together.</span>{' '}
-              A free community relay — from villages to cities — where every step builds healthier bodies, stronger minds, and deeper bonds.
+              Be among the first participants in a volunteer-built community relay for health, connection, and simple movement. Run, walk, support, or help shape the first route.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}
@@ -53,10 +48,10 @@ export default function Hero({ participantCount }: { participantCount: number })
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.4 }}
               className="mt-8 flex flex-wrap gap-4 text-sm text-gray-400">
               <span className="inline-flex items-center gap-2 bg-white/8 backdrop-blur px-4 py-2 rounded-full border border-white/12">
-                <CalendarDays className="h-4 w-4 text-saffron-400" /> Season 2026 • Community Routes
+                <CalendarDays className="h-4 w-4 text-saffron-400" /> Date Coming Soon
               </span>
               <span className="inline-flex items-center gap-2 bg-white/8 backdrop-blur px-4 py-2 rounded-full border border-white/12">
-                <MapPin className="h-4 w-4 text-leaf-400" /> 50 – 100+ km Relay
+                <MapPin className="h-4 w-4 text-leaf-400" /> First Community Route
               </span>
             </motion.div>
           </div>
@@ -66,9 +61,6 @@ export default function Hero({ participantCount }: { participantCount: number })
             <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative rounded-[2rem] bg-white/8 backdrop-blur-xl border border-white/15 shadow-2xl p-5 overflow-hidden">
-              <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-saffron-500/25 blur-3xl" />
-              <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-leaf-500/20 blur-2xl" />
-
               <div className="relative h-52 sm:h-60 rounded-2xl overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=900&q=75"
@@ -76,14 +68,11 @@ export default function Hero({ participantCount }: { participantCount: number })
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="h-14 w-14 rounded-full bg-white/20 backdrop-blur border border-white/30 flex items-center justify-center hover:scale-110 transition cursor-pointer">
-                    <Play className="h-6 w-6 text-white fill-white ml-0.5" />
-                  </div>
-                </div>
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <span className="text-xs font-semibold bg-black/50 backdrop-blur px-2.5 py-1 rounded-full text-white">🏃 Live from the route</span>
-                  <span className="text-xs font-bold bg-saffron-500/90 px-2.5 py-1 rounded-full text-white">Season 2026</span>
+                  <span className="text-xs font-semibold bg-black/50 backdrop-blur px-2.5 py-1 rounded-full text-white">Built by volunteers</span>
+                  <span className="inline-flex items-center gap-1 text-xs font-bold bg-saffron-500/90 px-2.5 py-1 rounded-full text-white">
+                    <Flag className="h-3.5 w-3.5" /> First Edition
+                  </span>
                 </div>
               </div>
 

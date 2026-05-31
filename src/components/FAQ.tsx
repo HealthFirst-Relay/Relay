@@ -13,23 +13,27 @@ const faqs = [
 	},
 	{
 		q: 'What is the distance limit?',
-		a: 'There is no fixed distance. Communities collectively cover anywhere from 50 km to 100+ km in relay format.',
+		a: 'You can choose a personal goal from 1 km to 100 km. The final relay route and format will be shared after planning is complete.',
 	},
 	{
 		q: 'Can families participate?',
-		a: 'Absolutely! We strongly encourage families to run together. Special family bibs and photo zones are arranged.',
+		a: 'Yes. Families can register together, and minors should participate with a parent, guardian, school, or approved community group.',
 	},
 	{
 		q: 'How do relay teams work?',
 		a: 'A team passes a symbolic baton from one runner to the next. Each member runs a comfortable distance — no pressure, just participation.',
 	},
 	{
-		q: 'What rewards are offered?',
-		a: 'Free certificates, finisher medals, fitness badges, community awards, networking, speaker sessions and entry to the celebration party.',
+		q: 'When is the event date?',
+		a: 'The date is coming soon. Registered participants will receive updates when the route and schedule are confirmed.',
 	},
 	{
 		q: 'How do I volunteer?',
-		a: 'Tick "Volunteer Interest" while registering, or use the Feedback section to send a volunteer proposal — we will reach out within 48 hours.',
+		a: 'Tick "Volunteer Interest" while registering, or use the Feedback section to send a volunteer proposal. The team will follow up as planning progresses.',
+	},
+	{
+		q: 'How is my information used?',
+		a: 'Your contact details are used for event confirmation, route updates, safety updates, and volunteer coordination. Do not submit sensitive medical details.',
 	},
 ];
 

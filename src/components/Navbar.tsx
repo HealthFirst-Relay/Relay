@@ -4,11 +4,10 @@ import { Menu, X, Activity } from 'lucide-react';
 
 const links = [
 	{ href: '#about', label: 'About' },
+	{ href: '#details', label: 'Details' },
 	{ href: '#benefits', label: 'Benefits' },
 	{ href: '#inspiration', label: 'Inspiration' },
-	{ href: '#rewards', label: 'Rewards' },
 	{ href: '#timeline', label: 'Timeline' },
-	{ href: '#stories', label: 'Stories' },
 	{ href: '#faq', label: 'FAQ' }
 ];
 

@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import EventBasics from './components/EventBasics';
 import About from './components/About';
 import Benefits from './components/Benefits';
 import Inspiration from './components/Inspiration';
-import Rewards from './components/Rewards';
-import Organizers from './components/Organizers';
 import Timeline from './components/Timeline';
-import Stories from './components/Stories';
-import Gallery from './components/Gallery';
 import Registration from './components/Registration';
 import Feedback from './components/Feedback';
 import FAQ from './components/FAQ';
@@ -38,19 +35,16 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#080808] overflow-x-hidden">
+    <div className="min-h-screen bg-[#0f120e] overflow-x-hidden">
       <ScrollProgress />
       <Navbar />
       <main>
         <Hero participantCount={participantCount} />
+        <EventBasics />
         <About participantCount={participantCount} />
         <Benefits />
         <Inspiration />
-        <Rewards />
-        <Organizers />
         <Timeline />
-        <Stories />
-        <Gallery />
         <Registration onRegistered={setParticipantCount} />
         <Feedback />
         <FAQ />

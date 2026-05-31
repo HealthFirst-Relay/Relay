@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="mt-4 text-base text-white/85 leading-relaxed">
-              A free, all-inclusive relay marathon connecting communities through health, fitness, inspiration and service.
+              An inaugural community relay connecting people through health, fitness, inspiration and service.
               Run Together. Grow Together. Inspire Together.
             </p>
             <div className="mt-5 flex gap-2">
@@ -41,8 +41,8 @@ export default function Footer() {
               {[
                 ['About', '#about'],
                 ['Benefits', '#benefits'],
+                ['Details', '#details'],
                 ['Inspiration', '#inspiration'],
-                ['Rewards', '#rewards'],
                 ['Timeline', '#timeline'],
                 ['FAQ', '#faq']
               ].map(([l, h]) => (
@@ -57,7 +57,7 @@ export default function Footer() {
               <li><a href="#register" className="hover:text-saffron-300 transition">Register Now</a></li>
               <li><a href="#feedback" className="hover:text-saffron-300 transition">Volunteer Sign-Up</a></li>
               <li><a href="#feedback" className="hover:text-saffron-300 transition">Share an Idea</a></li>
-              <li><a href="#stories" className="hover:text-saffron-300 transition">Community Stories</a></li>
+              <li><a href="#details" className="hover:text-saffron-300 transition">Event Details</a></li>
               <li><a href="#" className="hover:text-saffron-300 transition">Privacy Policy</a></li>
             </ul>
           </div>

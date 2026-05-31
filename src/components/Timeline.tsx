@@ -1,47 +1,47 @@
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Users, Dumbbell, Flag, PartyPopper, Trophy } from 'lucide-react';
+import { ClipboardCheck, Users, Dumbbell, Flag, HeartHandshake, MailCheck } from 'lucide-react';
 
 const events = [
 	{
 		icon: ClipboardCheck,
-		title: 'Registration Opens',
-		date: 'Phase 1 • Online & Village Camps',
-		desc: 'Free sign-up for schools, colleges, villages and towns.',
+		title: 'Interest Registration',
+		date: 'Now Open',
+		desc: 'Free sign-up for early participants, teams and volunteers.',
 		color: 'from-saffron-400 to-saffron-600',
 	},
 	{
 		icon: Users,
-		title: 'Community Meetups',
-		date: 'Phase 2 • Local Gatherings',
-		desc: 'Meet your relay team, mentors and inspiring guests in your area.',
+		title: 'Route Planning',
+		date: 'Coming Soon',
+		desc: 'The volunteer team confirms the first route, timing and support points.',
 		color: 'from-sky2-500 to-sky2-600',
 	},
 	{
 		icon: Dumbbell,
-		title: 'Training Sessions',
-		date: 'Phase 3 • Build-up Weeks',
-		desc: 'Free guided runs, warm-ups, nutrition tips and health checks.',
+		title: 'Participant Updates',
+		date: 'After Registration',
+		desc: 'Registered participants receive email updates about date, route and safety.',
 		color: 'from-violet-400 to-violet-600',
 	},
 	{
 		icon: Flag,
-		title: 'Relay Marathon Day',
-		date: 'The Big Day',
-		desc: 'The baton runs through villages, fields and city streets — together.',
+		title: 'Inaugural Relay Day',
+		date: 'Date Coming Soon',
+		desc: 'The first route opens for runners, walkers, families and volunteers.',
 		color: 'from-leaf-500 to-leaf-700',
 	},
 	{
-		icon: PartyPopper,
-		title: 'Celebration Party',
-		date: 'Same Evening',
-		desc: 'Music, food, stories and selfies under the stars.',
+		icon: HeartHandshake,
+		title: 'Community Wrap-up',
+		date: 'After the Relay',
+		desc: 'Collect feedback, thank volunteers and note what to improve.',
 		color: 'from-pink-400 to-pink-600',
 	},
 	{
-		icon: Trophy,
-		title: 'Awards & Recognition',
-		date: 'Closing Ceremony',
-		desc: 'Honouring champions, communities and unsung heroes.',
+		icon: MailCheck,
+		title: 'Next Route Planning',
+		date: 'Future Update',
+		desc: 'Use lessons from the first relay before announcing any future route.',
 		color: 'from-amber-400 to-amber-600',
 	},
 ];

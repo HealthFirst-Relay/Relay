@@ -24,8 +24,7 @@ export default function Inspiration() {
 					<span className="section-eyebrow">Inspiration</span>
 					<h2 className="section-title mt-4">Meet. Learn. Get Inspired.</h2>
 					<p className="mt-4 text-gray-400 text-lg">
-						Walk beside the people you've only read about. Every relay route brings together
-						doctors, scientists, teachers, students and changemakers — ready to share their stories.
+						The first relay is a chance to bring practical helpers together: people who can guide, volunteer, share knowledge, and make the route feel safe and welcoming.
 					</p>
 				</div>
 

@@ -17,6 +17,7 @@ interface FormState {
   distance: string;
   emergency: string;
   health: boolean;
+  consent: boolean;
   volunteer: boolean;
   team: string;
 }
@@ -24,7 +25,7 @@ interface FormState {
 const empty: FormState = {
   fullName: '', age: '', gender: '', email: '', mobile: '',
   village: '', occupation: '', distance: '5',
-  emergency: '', health: false, volunteer: false, team: 'Individual'
+  emergency: '', health: false, consent: false, volunteer: false, team: 'Individual'
 };
 
 export default function Registration({ onRegistered }: { onRegistered?: (total: number) => void }) {
@@ -60,8 +61,9 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
     if (!/^[+\d][\d\s().-]{7,19}$/.test(form.mobile)) e.mobile = 'Enter a valid phone number';
     if (!form.village.trim()) e.village = 'Please enter your village/city';
     if (!form.occupation.trim()) e.occupation = 'Please share your occupation';
-    if (!form.emergency.trim() || !/^[+\d][\d\s().-]{7,19}$/.test(form.emergency)) e.emergency = 'Enter a valid emergency contact';
+    if (form.emergency.trim() && !/^[+\d][\d\s().-]{7,19}$/.test(form.emergency)) e.emergency = 'Enter a valid emergency contact';
     if (!form.health) e.health = 'Please confirm health declaration';
+    if (!form.consent) e.consent = 'Please agree to be contacted about event updates';
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -132,12 +134,12 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <span className="section-eyebrow">Registration</span>
-            <h2 className="section-title mt-4">Join the Movement</h2>
+            <h2 className="section-title mt-4">Be among the first participants</h2>
             <p className="mt-4 text-gray-400 text-lg">
-              Free registration. Open to everyone. Run alone, run with friends, or run as a school, college or village team.
+              Free registration for the inaugural relay. The event date is coming soon, and registered participants will receive route and volunteer updates by email.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
-              {['Free for all participants', 'Instant digital confirmation', 'Choose your distance goal', 'Volunteer & team options included'].map((t) => (
+              {['No payment required', 'Confirmation email after submission', 'Choose a 1-100 km distance goal', 'Volunteer & team options included'].map((t) => (
                 <li key={t} className="flex items-start gap-3 card p-3">
                   <CheckCircle2 className="h-5 w-5 text-leaf-400 shrink-0" />
                   <span className="text-gray-300">{t}</span>
@@ -154,7 +156,7 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-3 left-4 text-white text-xs font-bold uppercase tracking-widest text-saffron-400">Your race awaits →</div>
+              <div className="absolute bottom-3 left-4 text-white text-xs font-bold uppercase tracking-widest text-saffron-400">First route coming soon</div>
             </div>
           </div>
 
@@ -208,7 +210,7 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
                     <span>100 km</span>
                   </div>
                 </Field>
-                <Field label="Emergency Contact" error={errors.emergency}>
+                <Field label="Emergency Contact (optional)" error={errors.emergency}>
                   <input className="input" value={form.emergency} onChange={(e) => update('emergency', e.target.value)} placeholder="Emergency phone number" />
                 </Field>
                 <Field label="Team Participation">
@@ -218,14 +220,21 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
                 </Field>
                 <div className="sm:col-span-2 flex flex-col gap-3">
                   <label className="flex items-start gap-3 bg-leaf-500/10 border border-leaf-500/30 rounded-xl p-3 cursor-pointer">
-                    <input type="checkbox" checked={form.health} onChange={(e) => update('health', e.target.checked)} className="mt-1 h-4 w-4 accent-leaf-500" />
+                    <input type="checkbox" checked={Boolean(form.health)} onChange={(e) => update('health', e.target.checked)} className="mt-1 h-4 w-4 accent-leaf-500" />
                     <span className="text-sm text-gray-300">
                       <strong className="text-white">Health Declaration:</strong> I confirm I am medically fit to participate and understand this is a community wellness event.
                     </span>
                   </label>
                   {errors.health && <ErrorText msg={errors.health} />}
+                  <label className="flex items-start gap-3 bg-sky2-500/10 border border-sky2-500/30 rounded-xl p-3 cursor-pointer">
+                    <input type="checkbox" checked={Boolean(form.consent)} onChange={(e) => update('consent', e.target.checked)} className="mt-1 h-4 w-4 accent-sky2-500" />
+                    <span className="text-sm text-gray-300">
+                      <strong className="text-white">Contact Consent:</strong> I agree to be contacted about event date, route, safety, and volunteer updates.
+                    </span>
+                  </label>
+                  {errors.consent && <ErrorText msg={errors.consent} />}
                   <label className="flex items-start gap-3 bg-saffron-500/10 border border-saffron-500/30 rounded-xl p-3 cursor-pointer">
-                    <input type="checkbox" checked={form.volunteer} onChange={(e) => update('volunteer', e.target.checked)} className="mt-1 h-4 w-4 accent-saffron-500" />
+                    <input type="checkbox" checked={Boolean(form.volunteer)} onChange={(e) => update('volunteer', e.target.checked)} className="mt-1 h-4 w-4 accent-saffron-500" />
                     <span className="text-sm text-gray-300">
                       <strong className="text-white">Volunteer Interest:</strong> I would also like to help organise, support, or guide other runners.
                     </span>
@@ -247,8 +256,8 @@ export default function Registration({ onRegistered }: { onRegistered?: (total: 
                 <Database className="h-4 w-4 text-sky2-400 shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-gray-200">Where your details go:</strong> Saved on this device under <code className="px-1 py-0.5 rounded bg-white/10 text-gray-200">hfrm_registrations</code>
-                  {isRemoteSubmissionEnabled ? ' and forwarded to the event team.' : ' — add VITE_SUBMISSION_ENDPOINT to collect entries centrally and trigger confirmation email.'}
-                  {' '}Do not enter sensitive medical details here.
+                  {isRemoteSubmissionEnabled ? ' and forwarded to the event team for planning updates.' : ' — add VITE_SUBMISSION_ENDPOINT to collect entries centrally and trigger confirmation email.'}
+                  {' '}We use this only for event communication. Do not enter sensitive medical details here.
                 </div>
               </div>
 

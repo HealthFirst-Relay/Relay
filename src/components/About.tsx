@@ -44,9 +44,9 @@ const points = [
 	'100% free participation for everyone',
 	'Open to children, students, families & seniors',
 	'Relay format — share the distance, share the joy',
-	'Flexible 50–100+ km collective goal',
-	'Health awareness camps along the route',
-	'Stronger villages, healthier communities',
+	'Flexible 1–100 km personal distance goal',
+	'Route details shared after registration',
+	'Built by volunteers, for the community',
 ];
 
 export default function About({ participantCount }: { participantCount: number }) {
@@ -74,16 +74,13 @@ export default function About({ participantCount }: { participantCount: number }
 					>
 						<span className="section-eyebrow">About the Event</span>
 						<h2 className="section-title mt-4">
-							A relay that runs through every{' '}
-							<span className="text-leaf-400">village,</span>{' '}
-							<span className="text-saffron-400">school</span> and{' '}
-							<span className="text-sky2-400">city.</span>
+							A first route for people who want to{' '}
+							<span className="text-leaf-400">move,</span>{' '}
+							<span className="text-saffron-400">help</span> and{' '}
+							<span className="text-sky2-400">belong.</span>
 						</h2>
 						<p className="mt-5 text-gray-400 text-lg leading-relaxed">
-							Health First Relay Marathon is a free, all-inclusive relay
-							where families, farmers, students, professionals and seniors run
-							together — passing the baton of wellbeing from one neighbour to the
-							next.
+							Health First Relay Marathon is starting with its inaugural community route. Early registrations help the volunteer team understand who wants to run, walk, support, and receive route updates.
 						</p>
 
 						<ul className="mt-7 grid sm:grid-cols-2 gap-3">
@@ -123,10 +120,10 @@ export default function About({ participantCount }: { participantCount: number }
 							<div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 							<div className="absolute bottom-5 left-5 right-5 text-white">
 								<div className="text-xs font-bold uppercase tracking-[0.2em] text-saffron-400">
-									On the route
+									First route in planning
 								</div>
 								<div className="mt-1 text-lg sm:text-xl font-bold">
-									From village lanes to city streets — one relay, one nation.
+									A practical community relay shaped by early participants.
 								</div>
 							</div>
 						</motion.div>
@@ -167,14 +164,13 @@ export default function About({ participantCount }: { participantCount: number }
 								className="card p-6 bg-gradient-to-br from-saffron-500/80 to-leaf-600/80 border-0"
 							>
 								<div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">
-									Community Impact
+									First Edition Goal
 								</div>
 								<div className="mt-3 text-xl font-extrabold leading-snug text-white">
-									Every step plants a seed of healthier communities
+									Start small, make it useful, grow with trust
 								</div>
 								<p className="mt-3 text-sm text-white/85">
-									Awareness drives, free check-ups, school workshops &
-									inter-generational meetups.
+									The first relay should be safe, welcoming, and simple enough for families, students, seniors, and volunteers to join.
 								</p>
 							</motion.div>
 						</div>

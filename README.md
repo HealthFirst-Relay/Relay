@@ -50,18 +50,16 @@ No private API keys should be placed in React, `.env`, or GitHub Pages source. T
 
 ## 🧭 Sections
 
-1. **Hero** — countryside SVG scene, animated runners, CTAs
-2. **About the Event** — animated statistics counters
-3. **Benefits** — Health, Mental Wellness, Community, Youth, Social Impact
-4. **Inspiration** — interactive profile cards (engineers, doctors, teachers…)
-5. **Rewards** — certificates, medals, party, recognition
-6. **Organizers** — team grid with mission statements
-7. **Timeline** — interactive event journey
-8. **Community Stories** — rotating testimonial carousel
-9. **Registration** — full form with validation + draft saving
-10. **Feedback & Ideas** — star ratings + idea submission
-11. **FAQ** — accessible accordion
-12. **Footer** — social, contact, mission
+1. **Hero** — first-edition message, CTAs, live participant count
+2. **Event Details** — date status, route status, format, and privacy note
+3. **About the Event** — honest inaugural-relay stats and goals
+4. **Benefits** — Health, Mental Wellness, Community, Youth, Social Impact
+5. **Inspiration** — helper and volunteer profile cards
+6. **Timeline** — practical planning milestones
+7. **Registration** — form validation, draft saving, consent, and backend forwarding
+8. **Feedback & Ideas** — star ratings + idea submission
+9. **FAQ** — accessible accordion
+10. **Footer** — social, contact, mission
 
 ## 🎨 Theme
 
