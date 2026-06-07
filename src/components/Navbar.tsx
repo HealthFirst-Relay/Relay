@@ -40,7 +40,7 @@ export default function Navbar() {
 		>
 			<div className="container-x flex items-center justify-between h-16 sm:h-20">
 				<a href="#top" className="flex items-center gap-2 group">
-					<span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-saffron-500 to-leaf-600 text-white shadow-lg shadow-saffron-500/30 group-hover:scale-110">
+					<span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-saffron-500 to-leaf-600 text-white shadow-lg shadow-saffron-500/30 group-hover:scale-110 transition">
 						<Activity className="h-5 w-5" />
 					</span>
 					<span className="font-display font-extrabold text-lg sm:text-xl leading-tight text-white">
@@ -56,7 +56,7 @@ export default function Navbar() {
 						<a
 							key={l.href}
 							href={l.href}
-							className="text-base font-semibold text-gray-300 hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-saffron-500 hover:after:w-full after:transition-all after:duration-300"
+							className="text-base font-semibold text-gray-300 hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-saffron-500 hover:after:w-full after:transition-all"
 						>
 							{l.label}
 						</a>
