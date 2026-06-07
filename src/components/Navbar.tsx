@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Activity } from 'lucide-react';
+import { Menu, X, Activity, Globe } from 'lucide-react';
 
 const links = [
 	{ href: '#about', label: 'About' },
@@ -22,6 +22,14 @@ export default function Navbar() {
 		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
+	const handleTranslate = () => {
+		const element = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+		if (element) {
+			element.value = 'te';
+			element.dispatchEvent(new Event('change'));
+		}
+	};
+
 	return (
 		<header
 			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -32,7 +40,7 @@ export default function Navbar() {
 		>
 			<div className="container-x flex items-center justify-between h-16 sm:h-20">
 				<a href="#top" className="flex items-center gap-2 group">
-					<span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-saffron-500 to-leaf-600 text-white shadow-lg shadow-saffron-500/30 group-hover:scale-105 transition">
+					<span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-saffron-500 to-leaf-600 text-white shadow-lg shadow-saffron-500/30 group-hover:scale-1[...]
 						<Activity className="h-5 w-5" />
 					</span>
 					<span className="font-display font-extrabold text-lg sm:text-xl leading-tight text-white">
@@ -48,7 +56,7 @@ export default function Navbar() {
 						<a
 							key={l.href}
 							href={l.href}
-							className="text-base font-semibold text-gray-300 hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-saffron-500 hover:after:w-full after:transition-all"
+							className="text-base font-semibold text-gray-300 hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-saffron-500 hover:after:w-fu[...]
 						>
 							{l.label}
 						</a>
@@ -56,6 +64,14 @@ export default function Navbar() {
 				</nav>
 
 				<div className="hidden lg:flex items-center gap-3">
+					<button
+						onClick={handleTranslate}
+						title="Translate to Telugu"
+						className="p-2.5 rounded-lg bg-white/10 border border-white/15 text-gray-300 hover:text-white hover:bg-white/20 transition flex items-center gap-2"
+					>
+						<Globe className="h-5 w-5" />
+						<span className="text-sm font-semibold">తెలుగు</span>
+					</button>
 					<a href="#register" className="btn-primary !py-2.5 !px-6 text-base">
 						Register Now
 					</a>
@@ -89,6 +105,16 @@ export default function Navbar() {
 									{l.label}
 								</a>
 							))}
+							<button
+								onClick={() => {
+									handleTranslate();
+									setOpen(false);
+								}}
+								className="px-3 py-3 rounded-xl hover:bg-white/8 font-semibold text-base text-gray-200 hover:text-white transition flex items-center gap-2 w-full"
+							>
+								<Globe className="h-4 w-4" />
+								తెలుగు (Telugu)
+							</button>
 							<a
 								href="#register"
 								onClick={() => setOpen(false)}
